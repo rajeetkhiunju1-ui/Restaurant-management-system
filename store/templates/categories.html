@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Categories</h1>
+<a href="/categories/add/">Add details</a>
+<br><br>
+{% for category in queryset %}
+    Name:{{category.name}}
+    <br><br>
+    Description:{{category.description}}
+    <br><br><br><br>
+    <a href="/categories/{{ category.id }}/edit/">Edit</a>
+    <a href="/categories/{{ category.id }}/delete/">Delete</a>
+    <br><br>
+{% endfor %}
+<a href="/Menu/">Menu Item</a>
+
+
+
+{% endblock %}

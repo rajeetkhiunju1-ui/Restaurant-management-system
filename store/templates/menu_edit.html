@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Edit Menu Item</h1>
+<form method="post">
+    {% csrf_token %}
+    Name:<input type="text" name="name" value="{{ menu.name }}" required>
+    <br><br> 
+    Category:
+    <select name="category">
+        {% for category in queryset %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+    </select>  
+    <br><br>
+    Price:<input type="number" name="price" value="{{ menu.price }}" required>
+    <br><br>
+    Description:<input type="text" name="description" value="{{ menu.description }}" required>
+    <br><br>
+    Availability:<input type="checkbox" name="is_available">
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
+
+
+
+
+{% endblock %}
