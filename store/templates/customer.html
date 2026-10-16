@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Customers</h1>
+<a href="/customers/add/">Add your details</a>
+<br><br>
+{% for C in customers %}
+    {% csrf_token %}
+    Name:{{ C.name }}
+    <br><br>
+    Email:{{ C.email }}
+    <br><br>
+    Phone:{{ C.phone }}
+    <br><br>
+    Address:{{ C.address }}
+    <br><br>
+    <a href="/customers/{{ C.id }}/edit/">Edit</a>
+    <br><br>
+    <a href="/customers/{{ C.id }}/delete/">Delete</a>
+
+
+{% endfor %}
+
+
+
+
+
+   
+
+
+{% endblock %}

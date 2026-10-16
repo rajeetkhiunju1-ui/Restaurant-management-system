@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="/order/add/">Add order</a>
+<h1>Orders</h1>
+{% for O in order %}
+  Customer:{{ O.customer.name }}
+  <br><br>
+  Table:{{ O.table.table_number }} 
+  <br><br>
+  {% for item in O.orderitem_set.all %}
+    {{ item.menu_item.name }}
+    {{ item.quantity }}
+  {% empty %}
+    No items found in this order
+{% endfor %}
+  Total:{{ O.total }}
+  <hr>
+{% empty %}
+  <p>No orders found</p>
+{% endfor %}
+
+
+
+
+
+
+
+{% endblock %} 

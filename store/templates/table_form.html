@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    Table no:<input type="number" name="table_number" required>
+    <br><br>
+    Capacity:<input type="number" name="capacity" required>
+    <br><br>
+    <label>Status</label>
+    <select name="status">
+        <option value="Available">Available</option>
+        <option value="Occupied">Occupied</option>
+        <option value="Reserved">Reserved</option>
+    </select>
+    <button type="submit">Submit</button>
+</form>
+
+
+
+
+
+
+
+{% endblock %}

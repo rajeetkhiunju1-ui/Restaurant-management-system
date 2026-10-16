@@ -4,6 +4,9 @@
 {% for menu in Menu %}
     Name:{{ menu.name }}
     <br><br>
+    <a href="/Menu/{{ menu.id }}/edit/">Edit</a>
+    <br><br>
+    <a href="Menu/{{ menu.id }}/delete/">Delete</a>
     Category:{{ menu.category.name }}
     <br><br>
     Price:{{ menu.price }}
@@ -11,7 +14,6 @@
     Description:{{ menu.description }}
     <br><br>
     Availability: {{ menu.is_available }}
-    <br><br>
     <br><br>
 {% endfor %}
 

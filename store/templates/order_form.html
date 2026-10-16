@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    Customer:<select name="customer">
+        {% for customer in customers %}
+            <option value="{{ customer.id }}">{{ customer.name }}</option>
+        {% endfor %}
+    </select>    
+    <br><br>
+
+
+    Table:<select name="table">
+        {% for table in tables %}
+            <option value="{{ table.id }}">{{ table.table_number }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    Menu:<select name="menu_item">
+        {% for menu in menus %}
+            <option value="{{ menu.id }}">{{ menu.name }}</option>
+        {% endfor %}
+    </select>    
+    <br><br>
+
+    Quantity:<input type="number" name="quantity" required>
+    <br><br>
+    Menu:
+    <select name="menu_item">
+        {% for menu in menus %}
+            <option value="{{ menu.id }}">{{ menu.name }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    Quantity:
+    <input type="number" name="quantity" required>
+    <br><br>
+    Status:<select name="status">
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+        <option value="Cancelled">Cancelled</option>
+    </select>
+    <button type="submit">Create order</button> 
+</form>
+
+
+
+
+
+{% endblock %}

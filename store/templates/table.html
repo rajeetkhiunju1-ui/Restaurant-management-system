@@ -1,0 +1,23 @@
+{% extends "base.html" %}   
+{% block content %}
+
+<h1>Table</h1>
+<a href="/table/add/">Add Table</a>
+<br><br>
+{% for t in table %}
+    Table No:{{ t.table_number }}
+    <br><br>
+    Capacity:{{ t.capacity }}
+    <br><br>
+    status:{{ t.status }}
+    <br><br>
+    <a href="/table/{{ t.id }}/delete/">Delete</a>
+    <br><br>
+    <a href="/table/{{ t.id }}/edit/">Edit</a>
+    <br><br>
+{% endfor %}
+
+
+
+
+{% endblock %}
